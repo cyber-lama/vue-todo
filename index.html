@@ -10,7 +10,8 @@
 </head>
 <body>
     <div id="app">
-        <todo :items="this.$root.todoItems" title="Список задач"></todo>
+        <todo v-for="todo in this.todoLists" :items="todo.items" :title="todo.title"></todo>
+        <v-button @click="addTodo" :active="false">оывыв</v-button>
     </div>
 </body>
 <script src="public/js/index.js"></script>

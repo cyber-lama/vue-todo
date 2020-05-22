@@ -260,6 +260,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -13818,22 +13819,25 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   message: 'test',
-  todoItems: [{
-    id: 1,
-    text: 'Задача 1',
-    compiled: true
-  }, {
-    id: 2,
-    text: 'Задача 2',
-    compiled: false
-  }, {
-    id: 3,
-    text: 'Задача 3',
-    compiled: false
-  }, {
-    id: 4,
-    text: 'Задача 4',
-    compiled: true
+  todoLists: [{
+    title: 'Список задач',
+    items: [{
+      id: 1,
+      text: 'Задача 1',
+      compiled: true
+    }, {
+      id: 2,
+      text: 'Задача 2',
+      compiled: false
+    }, {
+      id: 3,
+      text: 'Задача 3',
+      compiled: false
+    }, {
+      id: 4,
+      text: 'Задача 4',
+      compiled: true
+    }]
   }]
 });
 
@@ -14197,17 +14201,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Store */ "./resources/js/Store.js");
+/* harmony import */ var _components_chunks_v_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/chunks/v-button */ "./resources/js/components/chunks/v-button.vue");
+
 
  //Подключение шаблонов
 
 var files = __webpack_require__("./resources/js/components sync \\.vue$/");
 
 files.keys().map(function (key) {
-  return vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(key.split('/').pop().split('.')[0], files(key)["default"]);
+  vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(key.split('/').pop().split('.')[0], files(key)["default"]);
 });
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('v-button', _components_chunks_v_button__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
-  data: _Store__WEBPACK_IMPORTED_MODULE_1__["default"]
+  data: _Store__WEBPACK_IMPORTED_MODULE_1__["default"],
+  methods: {
+    addTodo: function addTodo() {
+      console.log("click");
+      this.todoLists.push({
+        title: 'Список задач',
+        items: []
+      });
+    }
+  }
 });
 
 /***/ }),
